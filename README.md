@@ -154,6 +154,23 @@ webpack4 版本开始，需要 webpack-cli 用来在命令行中运行 webpack
 
 ## 安装 lint-staged
 
+`yarn add lint-staged` 安装 监听 git 暂存区的插件
+
+`.lintstagedrc` 创建 lint-staged 配置文件
+
+`yarn add husky --save-dev` 安装 husky 配置文件
+
+```js
+{
+	"script":{
+		"prepare": "husky install"
+	}
+}
+```
+
+`yarn prepare` 初始化 husky
+
+`npx husky add .husky/pre-commit "npx lint-staged"` 添加 husky/pre-commit 钩子
 
 
 **对git暂存区的代码进行操作 对分阶段的git文件运行linters，不要让💩溜进你的代码库!**
