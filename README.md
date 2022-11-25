@@ -83,6 +83,13 @@ import {} from "xxx"; // 引入
 - 发布分支-release-发布定期要上线的功能
 - 修复分支-bug-*-修复线上代码的bug
 
+### git merge 合并分支相关
+
+`git merge <分支名称>`	合并指定分支到目前所在分支
+
+`git merge --no-commit <分支名称>`  合并指定分支到目前所在分支，不进行新的提交
+
+
 ## 初始化项目
 
 `.gitignore` git 忽略文件
