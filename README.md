@@ -188,3 +188,13 @@ webpack4 版本开始，需要 webpack-cli 用来在命令行中运行 webpack
   }
 }
 ```
+
+### husky 配合 lint-staged 多次运行
+
+```
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+exec >/dev/tty 2>&1
+npx lint-staged
+
+```

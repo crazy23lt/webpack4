@@ -1,2 +1,6 @@
 const name = "liut";
-Promise.resolve(e => e(1));
+function fn(name) {
+	return name;
+}
+
+fn(name);
