@@ -121,6 +121,14 @@ webpack4 版本开始，需要 webpack-cli 用来在命令行中运行 webpack
 
 ## 安装 eslint
 
+**对js代码进行校验，构建成ast抽象语法树，检查语法。**
+
+`yarn add eslint --save-dev` 安装 eslint 
+
+`npx eslint --init` 初始化eslint （可自定义）
+
+
+
 ## 安装 prettier
 
 **对代码风格进行管理，通过配置文件来描述格式化后的风格。**

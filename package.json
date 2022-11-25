@@ -9,11 +9,17 @@
 		"build": "webpack --config config/webpack.config.js"
 	},
 	"dependencies": {
+		"@babel/core": "^7.20.2",
+		"@babel/eslint-parser": "^7.19.1",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
 		"prettier": "^2.8.0",
 		"webpack": "4",
 		"webpack-cli": "3"
 	},
 	"devDependencies": {
-		"clean-webpack-plugin": "^4.0.0"
+		"clean-webpack-plugin": "^4.0.0",
+		"eslint-plugin-vue": "^9.8.0"
 	}
 }
