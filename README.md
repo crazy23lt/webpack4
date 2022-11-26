@@ -119,7 +119,11 @@ webpack4 版本开始，需要 webpack-cli 用来在命令行中运行 webpack
 
 `yarn add clean-webpack-plugin --dev` webpack 删除 dist 目录
 
-## 安装 eslint
+## 代码规范化
+
+&emsp;&emsp;通过prettier进行代码格式规范化，eslint进行js语法规范化，lint-staged用于合prettier 和 eslint，通过 husky git提交钩子在指定钩子触发 lint-staged。
+
+### 安装 eslint
 
 **对js代码进行校验，构建成ast抽象语法树，检查语法。**
 
@@ -132,7 +136,7 @@ webpack4 版本开始，需要 webpack-cli 用来在命令行中运行 webpack
 `.eslintignore` eslint 忽略文件
 
 
-## 安装 prettier
+### 安装 prettier
 
 **对代码风格进行管理，通过配置文件来描述格式化后的风格。**
 
@@ -152,7 +156,7 @@ webpack4 版本开始，需要 webpack-cli 用来在命令行中运行 webpack
 
 **整体流程**：编辑代码通过编辑器进行进行一次自动格式化保存，在提交代码的时候通过 lint-staged 进行格式化之后在提交。
 
-## 安装 lint-staged
+### 安装 lint-staged
 
 `yarn add lint-staged` 安装 监听 git 暂存区的插件
 
@@ -189,7 +193,7 @@ webpack4 版本开始，需要 webpack-cli 用来在命令行中运行 webpack
 }
 ```
 
-### husky 配合 lint-staged 多次运行
+### [bug]husky 配合 lint-staged 多次运行
 
 ```
 #!/usr/bin/env sh
@@ -198,3 +202,67 @@ exec >/dev/tty 2>&1
 npx lint-staged
 
 ```
+
+## Babel js 代码转换器
+
+- 将 es6 编写的代码转译成 es5 代码，生产的代码能够在老版本浏览器上运行。开发时运用最新 ECMA 规范进行编码，提高开发效率。
+
+### babel 配置方法
+
+- package.json
+- babel.config.js
+- .babelrc.js
+- 命令行配置
+
+`yarn add @babel/core @babel/cli @babel/preset-env --save-dev` 安装 babel 核心组件/babel 命令行工具/babel预设
+
+`yarn add core-js@3 --save-dev` core-js 进行 polyfill 的库
+
+`npx babel src --out-dir dist` 通过 shell 命令 进行js 代码编译
+
+- `@babel/preset-env` 所有项目都会使用
+- `@babel/preset-flow` flow
+- `@babel/preset-react` react 语法编译
+- `@babel/preset-typescript` typescript 语法
+
+.babelrc 配置文件有描述 配置功能
+
+#### @babel/preset-env 
+
+`@babel/preset-env` 是babel最重要的preset，这个 babel 可以根据 .browserslistrc 配置文件，
+
+`yarn add babel-loader --save-dev` 安装 babel-loader 通过 webpack module 进行 js 编译
+
+*webpack4:babel-loader@8 webpack5:babel-loader@9*
+
+webpack 通过 module 设别 babel-loader 对 js 代码进行编译，编译出来具体的代码可根据 .browserslistrc 配置进行指定范围浏览器。
+
+## 如何安装适合webpack版本的 loader 或 plugin
+
+1. 通过 [npmjs.com](https://www.npmjs.com) 搜索 loader 或者 pligin 。
+2. 进入 github Repository 远程仓库。
+3. 查看不同版本 tag 里面的 package.json，找根和自己版本一样的 webpack 即可 
+
+## Vue 安装
+
+`yarn add vue@2.6.14 vue-template-compiler@2.6.14` vue 核心文件 和 vue template 编译文件
+
+`yarn add vue-loader` webpack 解析 vue 文件
+
+`yarn add eslint-plugin-vue` eslint 正常识别 vue 语法
+
+## css/scss
+
+`yarn add css-loader@5.2.7 style-loader@2.0.0 --save-dev`
+
+
+
+## 参考
+
+[与 husky 一起使用时，多次运行 lint-staged](https://www.likecs.com/ask-10372833.html)
+
+[lint-staged 使用教程](https://www.cnblogs.com/jiaoshou/p/12250278.html)
+
+[babel 详解](https://blog.liuyunzhuge.com/tags/babel/)
+
+[什么是 PostCSS？如何使用插件自动化 CSS 任务 ](https://juejin.cn/post/7062717813764390948#heading-1)

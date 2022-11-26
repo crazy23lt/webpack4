@@ -9,9 +9,9 @@ module.exports = {
 	},
 	// 全局变量 规则
 	globals: {
-		Promise: "off", // 是否支持 Promise 语法 用于关闭 env 内部的允许的语法
-		jQuery: "readonly", // 变量只读不允许重写
-		dash: "writable" // 变量允许重写
+		// Promise: "off", // 是否支持 Promise 语法 用于关闭 env 内部的允许的语法
+		// jQuery: "readonly", // 变量只读不允许重写
+		// dash: "writable" // 变量允许重写
 	},
 	// 解释器配置
 	parserOptions: {
@@ -26,12 +26,19 @@ module.exports = {
 		}
 	},
 	// 继承配置
-	extends: ["eslint:recommended", "plugin:prettier/recommended"],
+	extends: [
+		"eslint:recommended",
+		"plugin:prettier/recommended",
+		"plugin:vue/essential"
+	],
 	// 插件
-	plugins: ["prettier"],
+	plugins: ["prettier", "vue"],
 	// 语法约束规则
 	rules: {
 		"prettier/prettier": "error", // prettier 规则 [0:error,1:warn,2:off]
-		"vue/multi-word-component-names": 0 // 忽略驼峰命名法  [0:error,1:warn,2:off]
+		"vue/multi-word-component-names": 0, // 忽略驼峰命名法  [0:error,1:warn,2:off]
+		"vue/comment-directive": 0,
+		"no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+		"no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
 	}
 };
