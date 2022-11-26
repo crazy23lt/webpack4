@@ -237,7 +237,25 @@ npx lint-staged
 
 webpack 通过 module 设别 babel-loader 对 js 代码进行编译，编译出来具体的代码可根据 .browserslistrc 配置进行指定范围浏览器。
 
-但是 
+## 如何安装适合webpack版本的 loader 或 plugin
+
+1. 通过 [npmjs.com](https://www.npmjs.com) 搜索 loader 或者 pligin 。
+2. 进入 github Repository 远程仓库。
+3. 查看不同版本 tag 里面的 package.json，找根和自己版本一样的 webpack 即可 
+
+## Vue 安装
+
+`yarn add vue@2.6.14 vue-template-compiler@2.6.14` vue 核心文件 和 vue template 编译文件
+
+`yarn add vue-loader` webpack 解析 vue 文件
+
+`yarn add eslint-plugin-vue` eslint 正常识别 vue 语法
+
+## css/scss
+
+`yarn add css-loader@5.2.7 style-loader@2.0.0 --save-dev`
+
+
 
 ## 参考
 
@@ -246,3 +264,5 @@ webpack 通过 module 设别 babel-loader 对 js 代码进行编译，编译出�
 [lint-staged 使用教程](https://www.cnblogs.com/jiaoshou/p/12250278.html)
 
 [babel 详解](https://blog.liuyunzhuge.com/tags/babel/)
+
+[什么是 PostCSS？如何使用插件自动化 CSS 任务 ](https://juejin.cn/post/7062717813764390948#heading-1)

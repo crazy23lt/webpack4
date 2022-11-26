@@ -26,12 +26,19 @@ module.exports = {
 		}
 	},
 	// 继承配置
-	extends: ["eslint:recommended", "plugin:prettier/recommended"],
+	extends: [
+		"eslint:recommended",
+		"plugin:prettier/recommended",
+		"plugin:vue/essential"
+	],
 	// 插件
-	plugins: ["prettier"],
+	plugins: ["prettier", "vue"],
 	// 语法约束规则
 	rules: {
 		"prettier/prettier": "error", // prettier 规则 [0:error,1:warn,2:off]
-		"vue/multi-word-component-names": 0 // 忽略驼峰命名法  [0:error,1:warn,2:off]
+		"vue/multi-word-component-names": 0, // 忽略驼峰命名法  [0:error,1:warn,2:off]
+		"vue/comment-directive": 0,
+		"no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+		"no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
 	}
 };
