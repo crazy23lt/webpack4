@@ -9,5 +9,16 @@ module.exports = {
 		filename: "js/[name].[hash:8].js",
 		path: path.resolve("dist")
 	},
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/, // 忽略文件
+				use: {
+					loader: "babel-loader"
+				}
+			}
+		]
+	},
 	plugins: [new CleanWebpackPlugin()]
 };

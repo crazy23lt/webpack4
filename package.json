@@ -10,8 +10,12 @@
 		"prepare": "husky install"
 	},
 	"dependencies": {
+		"@babel/cli": "^7.19.3",
 		"@babel/core": "^7.20.2",
 		"@babel/eslint-parser": "^7.19.1",
+		"@babel/preset-env": "^7.20.2",
+		"babel-loader": "8",
+		"core-js": "3",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",

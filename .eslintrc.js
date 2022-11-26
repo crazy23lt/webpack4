@@ -9,9 +9,9 @@ module.exports = {
 	},
 	// 全局变量 规则
 	globals: {
-		Promise: "off", // 是否支持 Promise 语法 用于关闭 env 内部的允许的语法
-		jQuery: "readonly", // 变量只读不允许重写
-		dash: "writable" // 变量允许重写
+		// Promise: "off", // 是否支持 Promise 语法 用于关闭 env 内部的允许的语法
+		// jQuery: "readonly", // 变量只读不允许重写
+		// dash: "writable" // 变量允许重写
 	},
 	// 解释器配置
 	parserOptions: {

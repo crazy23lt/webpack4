@@ -1,6 +1,5 @@
-const name = "liut";
-function fn(name) {
-	return name;
-}
+Promise.resolve().finally();
 
-fn(name);
+let obj = { ...{} };
+
+globalThis.obj = obj;
