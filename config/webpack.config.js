@@ -31,14 +31,19 @@ module.exports = {
 			},
 			{ test: /\.vue$/, loader: "vue-loader" },
 			{
-				test: /\.css?$/,
+				test: /\.(scss|css)?$/,
 				/**
 				 * style-loader：将 css 注入 DOM。
 				 * MiniCssExtractPlugin.loader：将 css 提取到 .css 文件中
 				 * css-loader：通过 import/require() 注入 css 并进行解析。
 				 */
 				// use: ["style-loader", "css-loader"] // 开发模式 浏览器反应速度更快
-				use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"] // 生产模式 css/js 文件并行加载，响应更快
+				use: [
+					MiniCssExtractPlugin.loader,
+					"css-loader",
+					"postcss-loader",
+					"sass-loader"
+				] // 生产模式 css/js 文件并行加载，响应更快
 			}
 		]
 	},

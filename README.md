@@ -255,7 +255,7 @@ webpack 通过 module 设别 babel-loader 对 js 代码进行编译，编译出�
 
 `yarn add css-loader@5.2.7 style-loader@2.0.0 --save-dev`
 
-
+`yarn add sass@1.3.0 sass-loader@10.4.1 --save-dev`
 
 ## 参考
 
