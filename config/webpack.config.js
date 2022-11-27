@@ -1,18 +1,27 @@
 const path = require("path");
 const webpack = require("webpack");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { VueLoaderPlugin } = require("vue-loader");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // 自动清除 dist 目录
+const HtmlWebpackPlugin = require("html-webpack-plugin"); // 自定义 html 文件
+const { VueLoaderPlugin } = require("vue-loader"); // 解析 .vue 文件
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 抽离 css 样式文件
+// const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); // 压缩 css 样式文件
 module.exports = {
 	target: "web", // 构建目标，node/web，默认值 web
-	devtool: "source-map", // 生成 source-map ，默认值 false
+	devtool: "source-map", //控制是否生产 source-map ，默认值 false。开发使用 cheap-eval-source-map，生产 source-map
 	mode: "development", // development/production 构建模式
 	entry: path.resolve(__dirname, "../src/main.js"), // 模块入口文件
 	output: {
 		filename: "js/[name].[hash:8].js",
 		path: path.resolve("dist")
+	},
+	// 配置模块如何解析
+	resolve: {
+		// 创建 import / require 的别名，让引入模块变得更简单。
+		alias: {
+			"@": path.resolve(__dirname, "../src"),
+			"@assets": path.resolve(__dirname, "../src/assets"),
+			"@store": path.resolve(__dirname, "../src/store")
+		}
 	},
 	// module 配置如何处理模块
 	module: {

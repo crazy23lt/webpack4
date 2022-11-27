@@ -257,6 +257,58 @@ webpack 通过 module 设别 babel-loader 对 js 代码进行编译，编译出�
 
 `yarn add sass@1.3.0 sass-loader@10.4.1 --save-dev`
 
+## Vue vuex
+
+`yarn add vuex@3.6.2 --save-dev`
+
+## Vue 修饰符
+
+**Vue 中修饰符可以处理许多 DOM 事件的细节**
+
+**修饰符分五种**
+
+- 表单修饰符
+- 事件修饰符
+- 鼠标按键修饰符
+- 键值修饰符
+- v-bind修饰符
+
+### 表单修饰符
+
+表单 input 标签使用 v-model 修饰符：
+
+- lazy：change 事件之后在进行同步
+- trim：去除首尾空格
+- number：用户输入值转为数值类型
+
+### 事件修饰符
+
+- stop：阻止事件冒泡
+- prevent：组织事件默认行为
+- self：
+
+
+## window.location
+
+**属性**
+
+- .href：`https://www.jianshu.com/search?q=JS#comments`
+- .origin：`https://www.jianshu.com`
+- .protocol：`https:`
+- .host：`www.jianshu.com`
+- .hostname：`www.jianshu.com`
+- .port：``
+- .pathname：`/search/`
+- .search：`?q=JS`
+- .hash：`#comments`
+
+**方法**
+
+- .assign() 导航到指定 URL
+- .replace() 导航到指定 URL 并删除当前页面访问记录
+- .reload() 重新加载当前页面
+- .toString() 返回 URL 字符串
+
 ## 参考
 
 [与 husky 一起使用时，多次运行 lint-staged](https://www.likecs.com/ask-10372833.html)
@@ -266,3 +318,5 @@ webpack 通过 module 设别 babel-loader 对 js 代码进行编译，编译出�
 [babel 详解](https://blog.liuyunzhuge.com/tags/babel/)
 
 [什么是 PostCSS？如何使用插件自动化 CSS 任务 ](https://juejin.cn/post/7062717813764390948#heading-1)
+
+[面试官：Vue常用的修饰符有哪些?有什么应用场景?](https://cloud.tencent.com/developer/article/1794268)

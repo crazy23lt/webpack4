@@ -1,16 +1,16 @@
 <template>
 	<div>
-		<h1>
-			{{ name }}
-		</h1>
+		<todos />
 	</div>
 </template>
 
 <script>
+import todos from "./todos/todos.vue";
 export default {
 	data: () => {
 		return { name: "liut" };
-	}
+	},
+	components: { todos }
 };
 </script>
 
