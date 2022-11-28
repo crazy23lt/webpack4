@@ -7,28 +7,23 @@
 			placeholder="What needs to be done?"
 			autocomplete="off"
 			autofocus
-			v-model="input"
+			v-model.trim="input"
 			@keyup.enter="enter"
 		/>
 	</header>
 </template>
 
 <script>
-import { mapActions } from "vuex";
 export default {
-	data: () => {
+	data() {
 		return {
-			input: ""
+			input: null
 		};
 	},
 	methods: {
-		...mapActions({ addTodo: "todo/addTodo" }),
 		enter() {
-			let boolean = this.addTodo(this.input);
-			boolean ? (this.input = "") : null;
+			this.$emit("handleInput", this.input);
 		}
 	}
 };
 </script>
-
-<style></style>

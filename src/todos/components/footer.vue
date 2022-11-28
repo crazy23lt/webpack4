@@ -5,25 +5,21 @@
 			{{ remainingCount > 1 ? "items" : "item" }} left
 		</span>
 		<ul class="filters">
-			<li @click="selectd('all')">
-				<a href="#/all" :class="{ selected: filtersKinds === 'all' }">All</a>
+			<li @click="selectFn('all')">
+				<a href="#/all" :class="{ selected: kinds === 'all' }">All</a>
 			</li>
-			<li @click="selectd('active')">
-				<a href="#/active" :class="{ selected: filtersKinds === 'active' }"
-					>Active</a
-				>
+			<li @click="selectFn('active')">
+				<a href="#/active" :class="{ selected: kinds === 'active' }">Active</a>
 			</li>
-			<li @click="selectd('completed')">
-				<a
-					href="#/completed"
-					:class="{ selected: filtersKinds === 'completed' }"
+			<li @click="selectFn('completed')">
+				<a href="#/completed" :class="{ selected: kinds === 'completed' }"
 					>Completed</a
 				>
 			</li>
 		</ul>
 		<button
 			class="clear-completed"
-			@click="removeCompleted"
+			@click="buttonClick"
 			v-show="count > remainingCount"
 		>
 			Clear completed
@@ -32,22 +28,25 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
 export default {
-	computed: {
-		...mapGetters(["filteredTodos", "filtersKinds"]),
-		count() {
-			return this.filteredTodos.length;
+	props: {
+		kinds: {
+			type: String
 		},
-		remainingCount() {
-			return this.filteredTodos.filter(task => task.completed).length;
+		remainingCount: {
+			type: Number
+		},
+		count: {
+			type: Number
 		}
 	},
 	methods: {
-		...mapActions({
-			removeCompleted: "todo/removeCompleted",
-			selectd: "todo/changeTodoList"
-		})
+		selectFn(val) {
+			this.$emit("handleKinds", val);
+		},
+		buttonClick() {
+			this.$emit("handleCompleted");
+		}
 	}
 };
 </script>

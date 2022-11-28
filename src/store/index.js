@@ -14,33 +14,20 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 	modules[moduleName] = value.default;
 	return modules;
 }, {});
+
 const store = new Vuex.Store({
-	modules,
-	getters
+	state: { local: "vuex 顶层module" }, //统一管理公共数据
+	mutations: {
+		CHANGE_LOCAL: state => {
+			console.log("CHANGE_LOCAL mutations:>> ", state);
+		}
+	}, //对 state 内的数据进行修改
+	actions: {
+		change_local: () => {
+			console.log("change_local actions:>> ");
+		}
+	}, //通知 mutation，可进行异步操作
+	modules, // 模块拆分
+	getters // state 计算属性
 });
 export default store;
-/**
- * 手搓简易 Vue.use
- * 用法 vue.use(插件,参数);
- * - 插件可以是 函数 或者 对象，对象则必须拥有 install 方法，将会接收你自己传入的 参数
- */
-
-// 我的 Vue 构造函数
-function myVue() {}
-function initUse(myvue) {
-	myvue.use = function (plugin) {
-		const installedPlugins =
-			this.installedPlugins || (this.installedPlugins = []);
-		if (installedPlugins.indexOf(plugin) > -1) return;
-		const args = [...arguments].slice(1);
-		args.unshift(this);
-		if (typeof plugin.install === "function") {
-			plugin.install.apply(plugin, args);
-		} else if (typeof plugin === "function") {
-			plugin.apply(null, args);
-		}
-		installedPlugins.push(plugin);
-	};
-}
-// 在我的Vue上注册 use 方法
-initUse(myVue);

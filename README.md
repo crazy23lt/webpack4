@@ -261,6 +261,68 @@ webpack 通过 module 设别 babel-loader 对 js 代码进行编译，编译出�
 
 `yarn add vuex@3.6.2 --save-dev`
 
+- 获取 state 
+	- `this.$store.state.属性名`	
+	- `this.$store.state.模块名.属性名`	
+	- `...mapState([属性名])`
+	- `...mapState({重命名:属性名})`
+	- `...mapState(模块名,[属性名])`
+	- `...mapState(模块名,{重命名:属性名})`
+- 获取 getter
+  - `this.$store.getters[属性名]`
+  - `this.$store.getters[模块名/属性名]`
+	- `...mapGetters([属性名])`
+	- `...mapGetters({重命名:属性名})`
+	- `...mapGetters(模块名,[属性名])`
+	- `...mapGetters(模块名,{重命名:属性名})`
+- 获取 mutation
+  - `this.$store.commit(mutation名,参数) `
+  - `this.$store.commit(模块名/mutation名称,参数)`
+  - `...mapMutations([名称])`
+  - `...mapMutations({重命名:名称})`
+  - `...mapMutations([模块名/名称])`
+  - `...mapMutations({重命名:模块名/名称})`
+  - `...mapMutations(模块名,{重命名:名称})`
+- 获取 action
+  - `this.$store.dispatch(action名,参数) `
+  - `this.$store.dispatch(模块名/action名称,参数)`
+  - `...mapActions([名称])`
+  - `...mapActions({重命名:名称})`
+  - `...mapActions([模块名/名称])`
+  - `...mapActions({重命名:模块名/名称})`
+  - `...mapActions(模块名,{重命名:名称})`
+
+**vue.use 注册插件原理**
+
+```js
+/**
+ * 手搓简易 Vue.use
+ * 用法 vue.use(插件,参数);
+ * - 插件可以是 函数 或者 对象，对象则必须拥有 install 方法，将会接收你自己传入的 参数
+ */
+
+// 我的 Vue 构造函数
+function myVue() {}
+function initUse(myvue) {
+	myvue.use = function (plugin) {
+		const installedPlugins =
+			this.installedPlugins || (this.installedPlugins = []);
+		if (installedPlugins.indexOf(plugin) > -1) return;
+		const args = [...arguments].slice(1);
+		args.unshift(this);
+		if (typeof plugin.install === "function") {
+			plugin.install.apply(plugin, args);
+		} else if (typeof plugin === "function") {
+			plugin.apply(null, args);
+		}
+		installedPlugins.push(plugin);
+	};
+}
+// 在我的Vue上注册 use 方法
+initUse(myVue);
+
+```
+
 ## Vue 修饰符
 
 **Vue 中修饰符可以处理许多 DOM 事件的细节**
