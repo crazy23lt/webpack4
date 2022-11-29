@@ -1,6 +1,6 @@
 <template>
 	<header class="header">
-		<h1>todos</h1>
+		<h1>Tasks</h1>
 		<input
 			type="text"
 			class="new-todo"

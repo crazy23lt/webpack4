@@ -58,7 +58,9 @@ export default {
 			});
 		}
 	},
-	created() {}
+	created() {
+		console.log("object :>> ", this);
+	}
 };
 </script>
 

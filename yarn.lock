@@ -5327,6 +5327,11 @@ npm-run-path@^5.1.0:
   dependencies:
     path-key "^4.0.0"
 
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npmmirror.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==
+
 nth-check@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmmirror.com/nth-check/-/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
@@ -7899,6 +7904,11 @@ vue-loader@15.10.1:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-router@3.6.5:
+  version "3.6.5"
+  resolved "https://registry.npmmirror.com/vue-router/-/vue-router-3.6.5.tgz#95847d52b9a7e3f1361cb605c8e6441f202afad8"
+  integrity sha512-VYXZQLtjuvKxxcshuRAwjHnciqZVoXAjTjcqBTz4rKc8qih9g9pI3hbDjmqXaHdgL3v8pV6P8Z335XvHzESxLQ==
 
 vue-style-loader@^4.1.0:
   version "4.1.3"

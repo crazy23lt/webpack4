@@ -20,7 +20,8 @@ module.exports = {
 		alias: {
 			"@": path.resolve(__dirname, "../src"),
 			"@assets": path.resolve(__dirname, "../src/assets"),
-			"@store": path.resolve(__dirname, "../src/store")
+			"@store": path.resolve(__dirname, "../src/store"),
+			"@view": path.resolve(__dirname, "../src/views")
 		}
 	},
 	// module 配置如何处理模块
@@ -48,7 +49,8 @@ module.exports = {
 				 */
 				// use: ["style-loader", "css-loader"] // 开发模式 浏览器反应速度更快
 				use: [
-					MiniCssExtractPlugin.loader,
+					// MiniCssExtractPlugin.loader,
+					"style-loader",
 					"css-loader",
 					"postcss-loader",
 					"sass-loader"
@@ -65,7 +67,7 @@ module.exports = {
 		contentBase: path.resolve(__dirname, "../dist"),
 		port: 3000,
 		hot: true,
-		open: true
+		open: false
 	},
 	plugins: [
 		new VueLoaderPlugin(),
